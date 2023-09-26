@@ -15,10 +15,11 @@ function UpdateBookInfo(props) {
 
   const { id } = useParams();
   const navigate = useNavigate();
+  const books_url = process.env.BE_LIBRARY_URL;
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8082/api/books/${id}`)
+      .get(`${books_url}/${id}`)
       .then((res) => {
         setBook({
           title: res.data.title,
@@ -51,7 +52,7 @@ function UpdateBookInfo(props) {
     };
 
     axios
-      .put(`http://localhost:8082/api/books/${id}`, data)
+      .put(`${books_url}/${id}`, data)
       .then((res) => {
         navigate(`/show-book/${id}`);
       })

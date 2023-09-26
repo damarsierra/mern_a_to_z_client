@@ -15,6 +15,7 @@ const CreateBook = (props) => {
     published_date: '',
     publisher: '',
   });
+  const books_url = process.env.BE_LIBRARY_URL;
 
   const onChange = (e) => {
     setBook({ ...book, [e.target.name]: e.target.value });
@@ -24,7 +25,7 @@ const CreateBook = (props) => {
     e.preventDefault();
 
     axios
-      .post('http://localhost:8082/api/books', book)
+      .post(`${books_url}`, book)
       .then((res) => {
         setBook({
           title: '',

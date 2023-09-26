@@ -8,21 +8,22 @@ function ShowBookDetails(props) {
 
   const { id } = useParams();
   const navigate = useNavigate();
+  const books_url = process.env.BE_LIBRARY_URL;
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8082/api/books/${id}`)
+      .get(`${books_url}/${id}`)
       .then((res) => {
         setBook(res.data);
       })
       .catch((err) => {
         console.log('Error from ShowBookDetails');
       });
-  }, [id]);
+  }, [books_url, id]);
 
   const onDeleteClick = (id) => {
     axios
-      .delete(`http://localhost:8082/api/books/${id}`)
+      .delete(`${books_url}/${id}`)
       .then((res) => {
         navigate('/');
       })

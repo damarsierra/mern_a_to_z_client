@@ -6,10 +6,11 @@ import BookCard from './BookCard';
 
 function ShowBookList() {
   const [books, setBooks] = useState([]);
+  const books_url = process.env.BE_LIBRARY_URL;
 
   useEffect(() => {
     axios
-      .get('http://localhost:8082/api/books')
+      .get(`${books_url}`)
       .then((res) => {
         setBooks(res.data);
       })
