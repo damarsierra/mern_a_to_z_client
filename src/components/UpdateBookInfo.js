@@ -15,7 +15,7 @@ function UpdateBookInfo(props) {
 
   const { id } = useParams();
   const navigate = useNavigate();
-  const books_url = process.env.BE_LIBRARY_URL;
+  const books_url = process.env.REACT_APP_BE_LIBRARY_URL;
 
   useEffect(() => {
     axios

@@ -6,7 +6,7 @@ import BookCard from './BookCard';
 
 function ShowBookList() {
   const [books, setBooks] = useState([]);
-  const books_url = process.env.BE_LIBRARY_URL;
+  const books_url = process.env.REACT_APP_BE_LIBRARY_URL;
 
   useEffect(() => {
     axios

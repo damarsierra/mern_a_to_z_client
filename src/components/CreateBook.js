@@ -15,7 +15,7 @@ const CreateBook = (props) => {
     published_date: '',
     publisher: '',
   });
-  const books_url = process.env.BE_LIBRARY_URL;
+  const books_url = process.env.REACT_APP_BE_LIBRARY_URL;
 
   const onChange = (e) => {
     setBook({ ...book, [e.target.name]: e.target.value });
